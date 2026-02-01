@@ -107,10 +107,12 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Segoe UI Emoji', 'Segoe UI Symbol', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   }
 
-  h1, h2, h3 {
+  h1,
+  h2,
+  h3 {
     font-family: 'Playfair Display', serif;
   }
 
@@ -121,11 +123,23 @@
 
 @layer utilities {
   .text-gradient {
-    @apply bg-gradient-to-r from-primary via-accent to-love bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary via-accent to-love bg-clip-text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
-  
+
+  /* Emoji fix for gradient text */
+  .text-gradient span {
+    -webkit-text-fill-color: unset;
+    color: inherit;
+  }
+
   .bg-romantic-gradient {
     @apply bg-gradient-to-br from-primary/10 via-accent/5 to-love/10;
+  }
+
+  .bg-love-gradient {
+    @apply bg-gradient-to-r from-pink-500 via-red-500 to-pink-600;
   }
 
   .heart-float {
@@ -133,9 +147,12 @@
   }
 
   @keyframes heartFloat {
-    0%, 100% {
+
+    0%,
+    100% {
       transform: translateY(0) rotate(0deg);
     }
+
     50% {
       transform: translateY(-10px) rotate(5deg);
     }
@@ -146,11 +163,70 @@
   }
 
   @keyframes pulseLove {
-    0%, 100% {
+
+    0%,
+    100% {
       transform: scale(1);
     }
+
     50% {
       transform: scale(1.05);
+    }
+  }
+
+  .sparkle {
+    animation: sparkle 1.5s ease-in-out infinite;
+  }
+
+  @keyframes sparkle {
+
+    0%,
+    100% {
+      opacity: 0.5;
+    }
+
+    50% {
+      opacity: 1;
+    }
+  }
+
+  .shimmer {
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+
+    0%,
+    100% {
+      text-shadow: 0 0 0px rgba(255, 20, 147, 0.4);
+    }
+
+    50% {
+      text-shadow: 0 0 10px rgba(255, 20, 147, 0.8);
+    }
+  }
+
+  .float-hearts {
+    animation: float 6s ease-in infinite;
+  }
+
+  @keyframes float {
+    0% {
+      opacity: 0;
+      transform: translateY(100px) translateX(0);
+    }
+
+    10% {
+      opacity: 1;
+    }
+
+    90% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+      transform: translateY(-100vh) translateX(100px);
     }
   }
 }

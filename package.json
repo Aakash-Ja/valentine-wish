@@ -1,7 +1,9 @@
 {
-  "name": "vite_react_shadcn_ts",
+  "name": "valentine-glow",
+  "description": "A beautiful, romantic web application to celebrate Valentine's Day with love notes, photo galleries, and gift ideas",
+  "author": "Valentine Glow Team",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
