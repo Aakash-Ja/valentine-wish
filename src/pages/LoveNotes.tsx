@@ -116,8 +116,20 @@ const LoveNotes = () => {
                     <p className="text-foreground italic leading-relaxed">
                       "{item.quote}"
                     </p>
+                      <Button
+                      variant="ghost"
+                      size="sm"
+                      className="opacity-0 group-hover:opacity-100 transition-opacity"
+                      onClick={() => copyToClipboard(`"${item.quote}" — ${item.author}`, index)}
+                    >
+                      {copiedIndex === index ? (
+                        <Check className="h-4 w-4 text-green-500" />
+                      ) : (
+                        <Copy className="h-4 w-4" />
+                      )}
+                    </Button>
                   </div>
-                  <div className="flex items-center justify-between">
+                  {/*<div className="flex items-center justify-between">
                     <p className="text-sm text-muted-foreground font-medium">
                       — {item.author}
                     </p>
@@ -133,7 +145,7 @@ const LoveNotes = () => {
                         <Copy className="h-4 w-4" />
                       )}
                     </Button>
-                  </div>
+                  </div>*/}
                 </CardContent>
               </Card>
             ))}

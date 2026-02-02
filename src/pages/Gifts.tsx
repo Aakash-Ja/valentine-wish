@@ -146,11 +146,11 @@ const Gifts = () => {
                       </Badge>
                     ))}
                   </div>
-                  <div className="pt-3 border-t border-border">
+                  {/*<div className="pt-3 border-t border-border">
                     <p className="text-sm text-muted-foreground">
                       Price Range: <span className="font-medium text-foreground">{category.priceRange}</span>
                     </p>
-                  </div>
+                  </div>*/}
                 </div>
               </CardContent>
             </Card>
